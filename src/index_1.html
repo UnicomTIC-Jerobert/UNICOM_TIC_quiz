@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <ol id="questions-list">
+            <!-- Questions will be inserted here dynamically -->
+        </ol>
+    </div>
+
+    <script>
+        const htmlQuestions = [
+            {
+                question: "1. What does HTML stand for?",
+                options: ["A) HyperText Markup Language", "B) HyperText Machine Language", "C) HyperText Marking Language", "D) Hyper Tool Markup Language"],
+                correctAnswerIndex: 0
+            },
+            {
+                question: "2. Which tag is used to define a hyperlink in HTML?",
+                options: ["A) <link>", "B) <a>", "C) <href>", "D) <img>"],
+                correctAnswerIndex: 1
+            },
+            {
+                question: "3. What is the purpose of the <br> tag in HTML?",
+                options: ["A) To bold text", "B) To break a line", "C) To create a block", "D) To add a space"],
+                correctAnswerIndex: 1
+            }
+        ];
+
+        const questionsList = document.getElementById('questions-list');
+
+        htmlQuestions.forEach((questionObj) => {
+            const li = document.createElement('li');
+            const questionText = document.createElement('p');
+            questionText.textContent = questionObj.question;
+
+            const ul = document.createElement('ul');
+            questionObj.options.forEach(option => {
+                const optionLi = document.createElement('li');
+                optionLi.textContent = option;
+                ul.appendChild(optionLi);
+            });
+
+            li.appendChild(questionText);
+            li.appendChild(ul);
+            questionsList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
